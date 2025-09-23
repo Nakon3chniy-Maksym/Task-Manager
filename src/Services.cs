@@ -40,6 +40,32 @@ namespace Task_Manager
 
         }
 
+        public void EditTask()
+        {
+            Console.Clear();
+            Console.Write("Choose the task's ID to edit: ");
+            int Id = IntChecker();
+            TaskItem item = Tasks[Id - 1];
+            Console.Write("Choose the field you would like to edit (Description, Priority, Status): ");
+            TaskOperations result = TaskOperationsChecker();
+
+            switch (result)
+            {
+                case TaskOperations.Description:
+                    Console.Write("Edited description: ");
+                    item.Description = Console.ReadLine();
+                    break;
+                case TaskOperations.Priority:
+                    Console.Write("Choose a priority: ");
+                    item.Priority = TaskPriorityChecker();
+                    break;
+                case TaskOperations.Status:
+                    Console.Write("Choose a completion status (true or false): ");
+                    item.IsCompleted = StatusChecker();
+                    break;
+            }
+        }
+
         public void RemoveTask()
         {
             Console.Clear();
@@ -72,6 +98,50 @@ namespace Task_Manager
                                 + $"\n\tCompleted: {Tasks[i].IsCompleted}");
             }
             Console.Read();
+        }
+
+        public int IntChecker()
+        {
+            int result;
+            while (!int.TryParse(Console.ReadLine(), out result))
+            {
+                Console.Write("Wrong input! Try another time: ");
+            }
+
+            return result;
+        }
+
+        public TaskOperations TaskOperationsChecker()
+        {
+            TaskOperations result;
+            while (!Enum.TryParse<TaskOperations>(Console.ReadLine(), true, out result))
+            {
+                Console.Write("Wrong input! Try another time: ");
+            }
+
+            return result;
+        }
+        
+        public TaskPriority TaskPriorityChecker()
+        {
+            TaskPriority result;
+            while (!Enum.TryParse<TaskPriority>(Console.ReadLine(), true, out result))
+            {
+                Console.Write("Wrong input! Try another time: ");
+            }
+
+            return result;
+        }
+
+        public bool StatusChecker()
+        {
+            bool result;
+            while (!bool.TryParse(Console.ReadLine(), out result))
+            {
+                Console.Write("Wrong input! Try another time: ");
+            }
+
+            return result;
         }
     }
 }
