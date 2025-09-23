@@ -1,4 +1,6 @@
-﻿namespace Task_Manager;
+﻿using System.ComponentModel;
+
+namespace Task_Manager;
 
 class Program
 {
@@ -9,15 +11,16 @@ class Program
         RepositoryManager repositoryManager = new RepositoryManager();
         service.Tasks = repositoryManager.LoadTasks();
         Console.WriteLine("Welcome to your personal Task Manager! ");
-        Console.Read();
+        Console.ReadKey();
         while (isWorking)
         {
             Console.Clear();
             Console.WriteLine("Please choose the operation you want:"
             + "\n\t1 - Reveal your tasks"
             + "\n\t2 - Create new task"
-            + "\n\t3 - Delete a task"
-            + "\n\t4 - Quit and Save");
+            + "\n\t3 - Edit task"
+            + "\n\t4 - Delete a task"
+            + "\n\t5 - Quit and Save");
 
             string input = Console.ReadLine();
             switch (input)
@@ -29,9 +32,12 @@ class Program
                     service.AddTask();
                     break;
                 case "3":
-                    service.RemoveTask();
+                    service.EditTask();
                     break;
                 case "4":
+                    service.RemoveTask();
+                    break;
+                case "5":
                     isWorking = false;
                     repositoryManager.SaveTasks(service.Tasks);
                     break;
