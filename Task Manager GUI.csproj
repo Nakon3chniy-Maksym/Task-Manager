@@ -79,17 +79,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="src\App.xaml.cs" />
-    <Compile Include="src\PlaceholderService.cs" />
-    <Compile Include="src\Views\AddTaskWindow.xaml.cs">
-      <DependentUpon>AddTaskWindow.xaml</DependentUpon>
+    <Compile Include="src\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Views\MainWindow.xaml.cs">
+    <Compile Include="src\Commands\CommandBase.cs" />
+    <Compile Include="src\Commands\NavigationCommand.cs" />
+    <Compile Include="src\Commands\SubmitCommand.cs" />
+    <Compile Include="src\Enums\DegOfUrgency.cs" />
+    <Compile Include="src\Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="src\Models\Task.cs" />
+    <Compile Include="src\Viewmodels\AddTaskViewModel.cs" />
+    <Compile Include="src\Viewmodels\ListingTasksViewModel.cs" />
+    <Compile Include="src\Viewmodels\MainViewModel.cs" />
+    <Compile Include="src\Viewmodels\TasksCollectionViewModel.cs" />
+    <Compile Include="src\Viewmodels\ViewModelBase.cs" />
+    <Compile Include="src\ViewServices\PlaceholderService.cs" />
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Views\SettingsWindow.xaml.cs">
-      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    <Compile Include="src\Views\AddTaskView.xaml.cs">
+      <DependentUpon>AddTaskView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Views\ListingTasksView.xaml.cs">
+      <DependentUpon>ListingTasksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Stores\NavigationStore.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -122,22 +136,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="src\Views\AddTaskWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="src\Views\AddTaskView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\Views\SettingsWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="src\Views\ListingTasksView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Models\" />
-    <Folder Include="src\Viewmodels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

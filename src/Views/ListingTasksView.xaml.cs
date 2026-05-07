@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Task_Manager_GUI
+namespace Task_Manager_GUI.src.Views
 {
     /// <summary>
-    /// Interaction logic for AddTaskWindow.xaml
+    /// Interaction logic for ListingTasksView.xaml
     /// </summary>
-    public partial class AddTaskWindow : Window
+    public partial class ListingTasksView : UserControl
     {
-        public AddTaskWindow()
+        public ListingTasksView()
         {
             InitializeComponent();
-        }
-
-        private void AddTaskButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

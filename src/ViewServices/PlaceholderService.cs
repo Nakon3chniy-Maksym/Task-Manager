@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Task_Manager_GUI
+namespace Task_Manager_GUITask_Manager_GUI.src.ViewServices
 {
     public static class PlaceholderService
     {
